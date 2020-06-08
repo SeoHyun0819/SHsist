@@ -55,9 +55,15 @@ public class CartController {
 			}
 		}//upload
 		bean.setPk(bean.getJob().startsWith("modify")?Integer.parseInt(bean.getJob().split("#")[1]):0);
+		if(fileName.length()==0&&bean.getJob().equals("new")) {
+			bean.setFileName("0.jpg");
+		}
 		System.out.println(bean);
-		//dao.insertProduct(bean);
-		dao.updateProduct(bean);
+		if(bean.getJob().equals("new")) {
+			dao.insertProduct(bean);
+		}else{
+			dao.updateProduct(bean);
+		}
 		return "redirect:adminProductList.do";
 	}
 	
