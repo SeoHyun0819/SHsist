@@ -9,11 +9,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE ID=#{VALUE}
 	</select>
 	
-	<select id="selectAdmin" resultType="adminPro" parameterType="String">
+	<sql id="selectProduct">
 		SELECT p.ID,PK,PRODUCTNAME,PRODUCTPRICE,PRODUCTORIGIN,PRODUCTCATEGORY,
 		FILENAME,REGDATE,m.NAME seller	
 		FROM ADMINPRODUCT p,ADMINPRODUCTMEMBER m
-		WHERE p.ID=m.ID AND p.ID=#{value}
+		WHERE p.ID=m.ID
+	</sql>
+	
+	<select id="selectAdmin" resultType="adminPro" parameterType="String">
+		<include refid="selectProduct"></include>
+		AND p.ID=#{value}
+	</select>
+	
+	<select id="selectClient" resultType="adminPro">
+		<include refid="selectProduct"></include>
 	</select>
 	
 	<insert id="insertProduct" parameterType="adminPro">

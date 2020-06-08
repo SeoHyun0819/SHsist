@@ -89,6 +89,11 @@ public class CartController {
 		return "redirect:adminProductList.do";
 	}*/
 	
+	@RequestMapping(value="clientList.do")
+	public String clientProcessList(Model model) {
+		model.addAttribute("clientList",dao.selectClient());
+		return "cart/productList";
+	}
 	
 	
 

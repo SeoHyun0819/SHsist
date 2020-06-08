@@ -48,6 +48,10 @@ public class CartDao extends SqlSessionDaoSupport {
 		this.getSqlSession().update("updateProduct",bean);
 	}
 	
+	public List<AdminProductBean>selectClient(){
+		return this.getSqlSession().selectList("selectClient");
+	}
+	
 
 	
 

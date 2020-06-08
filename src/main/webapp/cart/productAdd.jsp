@@ -206,7 +206,7 @@ $(document).ready(function(){
 						<p class="agr">
 							<span class="button"><a href="#" id="save">저장</a></span>
 							<span class="button"><a href="#" id="chart">차트</a></span>
-		       <div id="piechart" style="width: 900px; height: 500px;"></div>  <!-- 차트  -->
+		       <div class=sub_container id="piechart" style="width: 900px; height: 500px;"></div>  <!-- 차트  -->
 						</p>
 					</div>
 				</div>

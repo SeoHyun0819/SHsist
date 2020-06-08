@@ -11,10 +11,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <meta http-equiv="imagetoolbar" content="no" />
-<!-- <link href="../css/contents.css" rel="stylesheet" type="text/css" /> -->
-<link href="../css/default.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/web/css/contents.css" rel="stylesheet" type="text/css" /> -->
+<link href="/web/css/default.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="../js/design.js">
+<script type="text/javascript" src="/web/js/design.js">
 
 </script>
 <script src="/kr/script/jquery-2.1.4.min.js"></script>
@@ -26,15 +26,11 @@ $(document).ready(function(){
 });
 </script>
 
-
-
-
-
 </head>
 <body>	
 	<div id="wrap">
 		<!-- header -->
-		<jsp:include page="../include/topGnb.jsp"></jsp:include>
+		<jsp:include page="/include/topGnb.jsp"></jsp:include>
 		<!--// header -->
 
 		<div id="sub_container">
@@ -60,10 +56,6 @@ $(document).ready(function(){
 						</colgroup>
 						<tbody>
 							<tr>
-								<th>업체명</th>
-								<td><select style="width: 200px;">
-										<option>선택하세요</option>
-								</select></td>
 								<th>
 								<select id="query" name="query">
 								  <option selected="selected">선택하세요</option>
@@ -108,7 +100,7 @@ $(document).ready(function(){
 								</thead>
 
 								<tbody>
-							      <c:forEach var="i" items="${cList}" varStatus="cnt">
+							      <c:forEach var="i" items="${clientList}" varStatus="cnt">
 									<tr>
 										<td>${cnt.count}</td>
 										<td>
@@ -116,7 +108,7 @@ $(document).ready(function(){
 										${i.productName}
 										</a>
 										</td>
-										<td><img src="/kr/CartUp/${i.filename}" width="50" height="50"></img></td>
+										<td><img src="/web/cartUp/${i.fileName}" width="50" height="50"></img></td>
 										<td>${i.productOrigin }</td>
 										<td>${i.productPrice }</td>
 										<td>${i.productCategory }</td>
@@ -132,7 +124,7 @@ $(document).ready(function(){
 			</div>
 	
   <!--Footer-->
-      <jsp:include page="../include/footer.jsp"></jsp:include>
+      <jsp:include page="/include/footer.jsp"></jsp:include>
    <!--END Footer-->	
 	</div>
 </body>

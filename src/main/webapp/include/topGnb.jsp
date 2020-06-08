@@ -38,7 +38,7 @@
 					</p></a>
 				<ul class="gnb_menu">
 					
-					<a href="/kr/cart/clientList.do">
+					<a href="/web/clientList.do">
 						<li><img src="/web/img/reserve.png" onmouseover="this.src='/web/img/reserve_on.png'" onmouseout="this.src='/web/img/reserve.png'"></li>
 						<li>ºÓ«Œ«œ±‚</li>
 					</a>
