@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.com.bean.apple.cart">
+
+	<select id="adminLoginCheck" parameterType="String" resultType="String">
+		SELECT PW FROM ADMINPRODUCTMEMBER
+		WHERE ID=#{VALUE}
+	</select>
+	
+	<select id="selectAdmin" resultType="adminPro" parameterType="String">
+		SELECT p.ID,PK,PRODUCTNAME,PRODUCTPRICE,PRODUCTORIGIN,PRODUCTCATEGORY,
+		FILENAME,REGDATE,m.NAME seller	
+		FROM ADMINPRODUCT p,ADMINPRODUCTMEMBER m
+		WHERE p.ID=m.ID AND p.ID=#{value}
+	</select>
+	
+	<insert id="insertProduct" parameterType="adminPro">
+		INSERT INTO ADMINPRODUCT VALUES(#{id},ADMINPRODUCT_SEQ.NEXTVAL,
+		#{productName},#{productPrice},#{productOrigin},#{productCategory},#{fileName},SYSDATE)
+	</insert>
+	
+	<select id="adminProductInfo" parameterType="int" resultType="adminPro">
+		SELECT * FROM ADMINPRODUCT	<!-- *바꾸기  -->
+		WHERE PK=#{VALUE} 
+	</select>
+	
+	<delete id="deleteProduct" parameterType="int">
+		DELETE FROM ADMINPRODUCT
+		WHERE PK=#{VALUE}
+	</delete>
+	
+	<update id="updateProduct" parameterType="adminPro">
+		UPDATE ADMINPRODUCT SET PRODUCTNAME=#{productName},
+		PRODUCTPRICE=#{productPrice},
+		PRODUCTORIGIN=#{productOrigin},
+		PRODUCTCATEGORY=#{productCategory}
+		<choose>
+			<when test="fileName!=null">
+			,FILENAME=#{fileName}
+			</when>
+		</choose>
+		WHERE PK=#{pk}
+	</update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
